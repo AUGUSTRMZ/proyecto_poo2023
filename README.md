@@ -50,15 +50,3 @@ La clase `CalcularCalorias` proporciona un método estático para calcular las c
 ## Uso del Programa
 
 El programa principal (`main.cpp`) demuestra la funcionalidad de las clases. Se crean instancias de `Paciente` y `Datospaciente`, se modifican sus atributos y se calculan las calorías diarias.
-
----
-
-**Nota:** Asegúrate de tener las dependencias y compiladores adecuados para ejecutar el programa.
-
-
-
-Tus proteínas a consumir son {proteínas a consumir} gramos.
-
-Carbohidratos a consumir = {calorías a consumir} / 4
-
-Tus carbohidratos a consumir son {carbohidratos a consumir} gramos.
