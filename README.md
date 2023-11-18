@@ -1,74 +1,61 @@
-# Algoritmo de NUTRIBOT
+# Sistema de Información de Pacientes
 
-## Problemática y contexto
+Este programa es un sistema simple para gestionar información de pacientes, calcular calorías diarias y mostrar datos relacionados.
 
-El proyecto fue repensado para volverse un asistente virtual para nutriologos ya que finalmente al pensarlo si bien es cierto que es bueno que las personas tengan conceptos basicos sobre nutricion siempre es recomendable que asistan con un profesional en el tema para que su dieta este mas balanceada que solo cumplir con los macronutrientes y kcalorias necesarias consumiendo solo hamburguesas o pizza y es por esa razon que el usuario objetivo del programa cambio para ser usado por profesionales de la nutricion.
+## Clases
 
-Mi proyecto consiste en un programa que sea capaz de calcular las calorías que debería consumir una persona sana de acuerdo a su peso y estatura, así como también la cantidad de los tres macronutrientes necesarios para llevar a cabo este requisito. Para poder calcular esto se utilizo el metodo de Harris-Benedict que es el metodo universal para calcular las necesidades caloricas de una persona para mantenerse en su peso ideal.
+### 1. Paciente
 
-Esto me parece una idea bastante interesante, ya que llevo aproximadamente casi un año contando mis calorías y macronutrientes consumidos, y en algún futuro me gustaría ser fisicoculturista profesional. Tengo conocimientos en este tema y me resultaría interesante diseñar una herramienta que sea útil principalmente para mí en el futuro, y, por supuesto, podría serlo para otras personas.
+La clase `Paciente` representa a un paciente con atributos como nombre, edad, peso, altura y sexo. Proporciona métodos para ingresar y mostrar datos.
 
-## Algoritmo NUTRIBOT
+#### Métodos
 
-### Entradas: datos del paciente (peso, estatura y sexo)
-### Salida: calorías de mantenimiento y requerimientos diarios en macronutrientes para la persona según los datos proporcionados.
+- `Paciente(nombre: string, edad: int, peso: float, altura: float, sexo: char)`: Constructor para inicializar un objeto `Paciente`.
+- `getNombre(): string`: Devuelve el nombre del paciente.
+- `getEdad(): int`: Devuelve la edad del paciente.
+- `getPeso(): float`: Devuelve el peso del paciente.
+- `getAltura(): float`: Devuelve la altura del paciente.
+- `getSexo(): char`: Devuelve el sexo del paciente.
+- `setNombre(nuevoNombre: string): void`: Establece un nuevo nombre para el paciente.
+- `setEdad(nuevaEdad: int): void`: Establece una nueva edad para el paciente.
+- `setPeso(nuevoPeso: float): void`: Establece un nuevo peso para el paciente.
+- `setAltura(nuevaAltura: float): void`: Establece una nueva altura para el paciente.
+- `setSexo(nuevoSexo: char): void`: Establece un nuevo sexo para el paciente.
+- `ingresarDatos(): void`: Permite al usuario ingresar los datos del paciente.
+- `mostrarDatos(): void`: Muestra los datos del paciente.
 
-1. Por favor, ingresa el nombre del paciente: (nombre)
-2. Si eres un usuario nuevo, te damos la bienvenida a FitBodyBuilding. Por favor ingresa los datos que te solicitaremos a continuación. Si no, te damos la bienvenida de nuevo.
-3. Por favor ingresa el peso del paciente: (peso)
-4. Por favor ingresa la estatura en cm del paciente: (estatura)
-5. Por favor ingresa la edad edad del paciente: (edad)
-6. Por favor, ingresa si el paciente es hombre (H) o mujer (M).
-7. AVISO IMPORTANTE: ASEGÚRATE DE QUE LOS DATOS INGRESADOS SON CORRECTOS, YA QUE UN DATO INCORRECTO PUEDE LLEVAR A UNA RECOMENDACIÓN ERRÓNEA Y, POR TANTO, TENER EFECTOS NEGATIVOS EN EL LOGRO DE TUS METAS.
-8. ¿Son estos datos correctos? Peso: {peso} kg, estatura: {estatura} cm, sexo: {sexo seleccionado (H/M)} (Y/N)
+### 2. Datospaciente
 
-Si los datos son correctos, continuamos. Sino, ingresa nuevamente tus datos.
+La clase `Datospaciente` hereda de la clase `Paciente` y agrega atributos adicionales como número, dirección y nombre completo. Proporciona métodos para acceder y modificar estos nuevos atributos, así como un método adicional para mostrar datos.
 
-Si eres un hombre (H):
-- Tasa Metabólica Basal (TMB) = 65.5
-- Por favor, ingresa tu nivel de actividad física:
-  - Sedentario (nada de ejercicio) = TMB * 1.2
-  - Levemente activo (1-3 días a la semana) = TMB * 1.375
-  - Moderadamente activo (4-5 días a la semana) = TMB * 1.55
-  - Muy activo (6-7 días a la semana) = TMB * 1.725
-  - Atleta profesional (ejercicio intenso todos los días) = TMB * 1.9
+#### Métodos Adicionales
 
-Muy bien, comencemos.
+- `Datospaciente(nombre: string, edad: int, peso: float, altura: float, sexo: char, numero: int, direccion: string, nombreCompleto: string)`: Constructor para inicializar un objeto `Datospaciente`.
+- `getNumero(): int`: Devuelve el número asociado al paciente.
+- `getDireccion(): string`: Devuelve la dirección del paciente.
+- `getNombreCompleto(): string`: Devuelve el nombre completo del paciente.
+- `setNumero(nuevoNumero: int): void`: Establece un nuevo número para el paciente.
+- `setDireccion(nuevaDireccion: string): void`: Establece una nueva dirección para el paciente.
+- `setNombreCompleto(nuevoNombreCompleto: string): void`: Establece un nuevo nombre completo para el paciente.
+- `mostrarDatos1(): void`: Muestra datos adicionales del paciente.
 
-Calorías a consumir = {nivel de actividad física} + (13.75 * {peso}) + (5.003 * {estatura}) - (6.75 * {edad})
+### 3. CalcularCalorias
 
-Tus calorías a consumir son {calorías a consumir} kcal.
+La clase `CalcularCalorias` proporciona un método estático para calcular las calorías diarias necesarias para un paciente.
 
-Proteínas a consumir = 1.6 * {peso}
+#### Métodos
 
-Tus proteínas a consumir son {proteínas a consumir} gramos.
+- `kcal(paciente: Paciente): float`: Calcula las calorías diarias necesarias para el paciente.
 
-Carbohidratos a consumir = {calorías a consumir} / 4
+## Uso del Programa
 
-Tus carbohidratos a consumir son {carbohidratos a consumir} gramos.
+El programa principal (`main.cpp`) demuestra la funcionalidad de las clases. Se crean instancias de `Paciente` y `Datospaciente`, se modifican sus atributos y se calculan las calorías diarias.
 
-Kilocalorías en grasa a consumir = ({calorías a consumir} * 0.25)
+---
 
-Grasas a consumir = {kcal en grasas a consumir} / 9
+**Nota:** Asegúrate de tener las dependencias y compiladores adecuados para ejecutar el programa.
 
-Tus grasas a consumir son {grasas a consumir} gramos.
 
-Si eres una mujer (M):
-- Tasa Metabólica Basal (TMB) = 65.5
-- Por favor, ingresa tu nivel de actividad física:
-  - Sedentario (nada de ejercicio) = TMB * 1.2
-  - Levemente activo (1-3 días a la semana) = TMB * 1.375
-  - Moderadamente activo (4-5 días a la semana) = TMB * 1.55
-  - Muy activo (6-7 días a la semana) = TMB * 1.725
-  - Atleta profesional (ejercicio intenso todos los días) = TMB * 1.9
-
-Muy bien, comencemos.
-
-Calorías a consumir = {nivel de actividad física} + (9.563 * {peso}) + (1.850 * {estatura}) - (4.676 * {edad})
-
-Tus calorías a consumir son {calorías a consumir} kcal.
-
-Proteínas a consumir = 1.6 * {peso}
 
 Tus proteínas a consumir son {proteínas a consumir} gramos.
 
