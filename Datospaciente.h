@@ -1,9 +1,11 @@
-// Datospaciente.h
+#include "Paciente.h"
 #include <iostream>
 #include <string>
+
 using namespace std;
 
-class Datospaciente {
+class Datospaciente : public Paciente {
+
 private: // atributos de la clase
   int numero;
   string direccion;
@@ -11,49 +13,43 @@ private: // atributos de la clase
 
 public:
   // cosntructor
-  Datospaciente(int _numero, string _direccion, string _nombreCompleto) {
-    numero = _numero;
-    direccion = _direccion;
-    nombreCompleto = _nombreCompleto;
-  }
+  Datospaciente(string _nombre, int _edad, float _peso, int _altura, char _sexo,
+                int _numero, string _direccion, string _nombreCompleto)
+      : Paciente(_nombre, _edad, _peso, _altura, _sexo), numero(_numero),
+        direccion(_direccion), nombreCompleto(_nombreCompleto) {}
 
   // definir getters
-  string getNombreCompleto() const;
-  string getDireccion() const;
   int getNumero() const;
+  string getDireccion() const;
+  string getNombreCompleto() const;
 
-  // definir Setters
-  void setNombreCompleto(string nuevoNombreCompleto);
+  // definir los setters
   void setNumero(int nuevoNumero);
   void setDireccion(string nuevaDireccion);
+  void setNombreCompleto(string nuevoNombreCompleto);
 
   // definir los metodos
   void mostrarDatos1();
 };
 
 // getters
+int Datospaciente::getNumero() const { return numero; }
+string Datospaciente::getDireccion() const { return direccion; }
 string Datospaciente::getNombreCompleto() const { return nombreCompleto; }
 
-string Datospaciente::getDireccion() const { return direccion; }
-
-int Datospaciente::getNumero() const { return numero; }
-
-// Setters
-void Datospaciente::setNombreCompleto(const string nuevoNombreCompleto) {
-  nombreCompleto = nuevoNombreCompleto;
-}
-
+// setters
+void Datospaciente::setNumero(int nuevoNumero) { numero = nuevoNumero; }
 void Datospaciente::setDireccion(string nuevaDireccion) {
   direccion = nuevaDireccion;
 }
+void Datospaciente::setNombreCompleto(string nuevoNombreCompleto) {
+  nombreCompleto = nuevoNombreCompleto;
+}
 
-void Datospaciente::setNumero(int nuevoNumero) { numero = nuevoNumero; }
-
-// metodos
+// metodo
 void Datospaciente::mostrarDatos1() {
-  Datospaciente paciente1(8991, "123 Main St", "John Doe");
-  cout << "*LOS DATOS DEL PACIENTE SON: " << endl;
-  cout << "Nombre Completo: " << nombreCompleto << endl;
-  cout << "Direccion: " << direccion << endl;
-  cout << "Numero: " << numero << endl;
+  cout << "LOS DATOS DEL PACIENTE SON: " << endl;
+  cout << "Nombre completo: " << getNombreCompleto() << endl;
+  cout << "Direccion: " << getDireccion() << endl;
+  cout << "Numero: " << getNumero() << endl;
 }

@@ -1,35 +1,37 @@
-// main.cpp
 #include "CalcularCalorias.h"
 #include "Datospaciente.h"
 #include "Paciente.h"
+#include <iostream>
+#include <string>
 
 using namespace std;
 
 int main() {
-  Paciente paciente("Juan", 20, 70, 175, 'M');
-  Datospaciente pacienteDatos(4555, "Andrea Jenkins", "alvarado 234");
-  
-  paciente.mostrarDatos();
-  pacienteDatos.mostrarDatos1();
+  Datospaciente paciente1("Marco", 20, 75, 180, 'M', 8991, "123 Main St",
+                          "Marco Solis");
 
-  // Modifico al paciente atraves de los setters
-  paciente.setNombre("Andrea ");
-  paciente.setEdad(45);
-  paciente.setPeso(65);
-  paciente.setAltura(165);
-  paciente.setSexo('F');
+  paciente1.mostrarDatos();  // muestra los datos de la clase paciente
+  paciente1.mostrarDatos1(); // mostrar datos de la clase datospaciente
 
-  // Modifico al paciente 1 atraves de los setters
-  pacienteDatos.setNombreCompleto("Andrea Jenkins ");
-  pacienteDatos.setNumero(4555);
-  pacienteDatos.setDireccion("mainSt 234");
+  // modifico al paciente en la clase de paciente
+  paciente1.setNombre("Juliana");
+  paciente1.setEdad(25);
+  paciente1.setAltura(155);
+  paciente1.setPeso(60);
+  paciente1.setSexo('F');
 
-  // Hago que se muestren los datos actualizados
-  paciente.mostrarDatos();
-  pacienteDatos.mostrarDatos1();
+  // modifico al paciente en la clase de datospaciente
+  paciente1.setNumero(7555);
+  paciente1.setDireccion("San jorge 101");
+  paciente1.setNombreCompleto("Juliana Ortega");
 
-  float caloriasDiarias = CalcularCalorias::kcal(paciente);
-  cout << "\nCalorias diarias necesarias: " << caloriasDiarias << "kcal \n";
+  // mostrar los datos actualizados
+  paciente1.mostrarDatos();
+  paciente1.mostrarDatos1();
+
+  // calcula y muestra las calorias
+  float caloriasDiarias = CalcularCalorias::kcal(paciente1);
+  cout << "Calorias diarias: " << caloriasDiarias << "kcal\n" << endl;
 
   return 0;
 }

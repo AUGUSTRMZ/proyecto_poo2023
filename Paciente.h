@@ -1,14 +1,11 @@
-// Paciente.h
-#pragma once
-// ... [Paciente class definition] ...
-
+#ifndef PACIENTE_H
+#define PACIENTE_H
 #include <iostream>
 #include <string>
 
 using namespace std;
 
 // clase
-
 class Paciente {
 private: // atributos de la clase
   string nombre;
@@ -26,7 +23,6 @@ public:
     altura = _altura;
     sexo = _sexo;
   };
-
   // definir Getters
   string getNombre() const;
   int getEdad() const;
@@ -97,4 +93,5 @@ void Paciente::mostrarDatos() {
   cout << "Peso: " << peso << endl;
   cout << "Altura: " << altura << endl;
   cout << "Sexo: " << sexo << endl;
-};
+}
+#endif
