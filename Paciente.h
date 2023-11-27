@@ -65,7 +65,7 @@ void Paciente::setAltura(float nuevaAltura) { altura = nuevaAltura; }
 
 void Paciente::setSexo(char nuevoSexo) { sexo = nuevoSexo; }
 
-// metodos
+// ingresar los datos del paciente
 void Paciente::ingresarDatos() {
   cout << "**INGRESE LOS DATOS DEL PACIENTE**" << endl;
 
@@ -85,6 +85,7 @@ void Paciente::ingresarDatos() {
   cin >> sexo;
 }
 
+//muestra los datos del paciente
 void Paciente::mostrarDatos() const {
   cout << "*LOS DATOS DEL PACIENTE SON: " << endl;
 
