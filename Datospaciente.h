@@ -7,7 +7,7 @@
 #include <string>
 
 using namespace std;
-
+//defino la clase datos paciente
 class Datospaciente : public Paciente {
 private:                      // atributos
   int ID;                     // numero de identificacion del paciente
@@ -15,7 +15,7 @@ private:                      // atributos
   string nombreCompleto;      // nombre completo del paciente
   HistorialMedico historial1; // composicion
 
-public:
+public: //metodos
   // constructor
   Datospaciente(string _nombre, int _edad, float _peso, int _altura, char _sexo,
                 int _ID, string _direccion, string _nombreCompleto)
@@ -52,7 +52,7 @@ void Datospaciente::setNombreCompleto(string nuevoNombreCompleto) {
   nombreCompleto = nuevoNombreCompleto;
 }
 
-// metodo
+// muestra los datos del paciente
 void Datospaciente::mostrarDatos1() {
   cout << "LOS DATOS DEL PACIENTE SON: " << endl;
   cout << "Nombre completo: " << getNombreCompleto() << endl;
