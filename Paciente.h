@@ -39,7 +39,7 @@ public:
 
   // definir metodos
   void ingresarDatos();
-  void mostrarDatos();
+  void mostrarDatos() const;
 };
 
 // Getters
@@ -85,7 +85,7 @@ void Paciente::ingresarDatos() {
   cin >> sexo;
 }
 
-void Paciente::mostrarDatos() {
+void Paciente::mostrarDatos() const {
   cout << "*LOS DATOS DEL PACIENTE SON: " << endl;
 
   cout << "Nombre: " << nombre << endl;
