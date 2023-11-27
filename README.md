@@ -78,4 +78,4 @@ float caloriasDiarias = CalcularCalorias::kcal(paciente1);
 cout << "Calorias diarias: " << caloriasDiarias << "kcal\n" << endl;
 
 
-El programa principal (`main.cpp`) demuestra la funcionalidad de las clases. Se crean instancias de `Paciente` y `Datospaciente`, se modifican sus atributos y se calculan las calorías diarias.
+
